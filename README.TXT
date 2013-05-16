@@ -8,5 +8,5 @@ PROJECT TITLE: Catching Plagiarists
 PURPOSE OF PROJECT:To figure out who is cheating in a classroom setting
 VERSION or DATE:
 HOW TO START THIS PROJECT:Right Click on "" then click void main string
-AUTHORS:Wyatt Dahlenburg
+AUTHORS:
 USER INSTRUCTIONS:Do good
