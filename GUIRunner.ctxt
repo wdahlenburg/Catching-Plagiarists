@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GUIRunner()
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=
+comment3.target=int\ inputNum()
+comment4.params=
+comment4.target=int\ getTolerance()
+comment5.params=str
+comment5.target=boolean\ isInteger(java.lang.String)
+comment6.params=
+comment6.target=java.io.File\ dirChooser()
+comment7.params=arr
+comment7.target=void\ displayData(ArrHash)
+comment8.params=
+comment8.target=java.awt.Dimension\ getPreferredSize()
+numComments=9

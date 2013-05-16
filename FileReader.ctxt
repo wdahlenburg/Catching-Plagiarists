@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=num\ tolerance\ d
+comment0.target=ArrHash\ reader(int,\ int,\ java.io.File)
+comment1.params=s
+comment1.target=int\ getNumWords(java.lang.String)
+comment2.params=s1\ s2
+comment2.target=int\ compare(java.lang.String,\ java.lang.String)
+numComments=3

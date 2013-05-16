@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=capacity
+comment0.target=HashTable(int)
+comment1.params=
+comment1.target=int\ size()
+comment2.params=
+comment2.target=void\ clear()
+comment3.params=key
+comment3.target=int\ hashIndex(java.lang.Object)
+comment4.params=key\ value
+comment4.target=boolean\ put(java.lang.Object,\ java.lang.Object)
+comment5.params=key
+comment5.target=java.lang.Object\ get(java.lang.Object)
+comment6.params=key
+comment6.target=boolean\ remove(java.lang.Object)
+numComments=7
