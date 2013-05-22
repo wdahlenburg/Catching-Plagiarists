@@ -12,7 +12,7 @@ public class Runner
     }
     static Scanner in = new Scanner(System.in);
     public static ArrHash run(int a,int t, File f){
-        System.out.println("\nYour word frequency is " + a);
+        //System.out.println("\nYour word frequency is " + a);
 
         FileReader read = new FileReader();
         return read.reader(a,t,f);

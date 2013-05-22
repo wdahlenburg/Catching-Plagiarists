@@ -48,8 +48,9 @@ public class GUIRunner extends JFrame implements ActionListener
             int a = inputNum();
             File f = dirChooser();            
             int tolerance = getTolerance();
-            ArrHash arrhash = runner.run(a,tolerance,f); 
-            displayData(arrhash);
+            ArrHash arrhash = runner.run(a,f); 
+            data d = new data(arrhash,tolerance);
+            //d.displayData(arrhash);
         }else if(e.getSource() == about){
             System.out.println(runner.welcomeText());
         }else if(e.getSource() == help){
@@ -147,19 +148,52 @@ public class GUIRunner extends JFrame implements ActionListener
         return jfc.getSelectedFile();
     }
 
-    public void displayData(ArrHash arr){
-        String str = "";
-        ArrayList<Integer> alist = arr.getArrayList();
-        HashTable table = arr.getHashTable();
-        for(int num : alist){
-            str += table.get(num) + " " + num + "\n";
+    public class data extends JFrame implements ActionListener{
+        public data(ArrHash arr,int tolerance){
+            String str = "";
+            ArrayList<Integer> alist = arr.getArrayList();
+            HashTable table = arr.getHashTable();
+            for(int num :alist){
+                if(num > tolerance)
+                    str += table.get(num) + " " + num +  "->\t" + "\n";
+            }
+            JLabel label = new JLabel("The comparisons:   ");
+            setLayout(new FlowLayout());
+            add(label);
+            JTextArea text = new JTextArea(str);
+            text.setRows(40);
+            text.setColumns(20);
+            text.setPreferredSize(new Dimension(500,600));
+            JScrollPane jsp = new JScrollPane(text);
+            setBounds(10,100,text.getRows() * 400,text.getColumns() * 400);
+            jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+            getContentPane().add(jsp);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //add(text,BorderLayout.PAGE_START);
+            //add(myScrollPane,BorderLayout.EAST);
+            setLayout(new FlowLayout());
+            setVisible(true);
         }
-        JTextArea myText = new JTextArea(str);
-        JScrollPane myScrollPane = new JScrollPane(myText);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myText.setText(str);
-        myText.setEditable(false);
-        myText.setVisible(true);
+
+        public void displayData(ArrHash arr){
+            String str = "";
+            ArrayList<Integer> alist = arr.getArrayList();
+            HashTable table = arr.getHashTable();
+            for(int num : alist){
+                str += table.get(num) + " " + num + "\n";
+            }
+            JTextArea myText = new JTextArea(str);
+            myText.setPreferredSize(new Dimension(400,800));
+            JScrollPane myScrollPane = new JScrollPane(myText);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            myText.setText(str);
+            myText.setEditable(false);
+            myText.setVisible(true);
+        }
+
+        public void actionPerformed(ActionEvent e){
+            setVisible(true);
+        }
     }
 
     public Dimension getPreferredSize(){

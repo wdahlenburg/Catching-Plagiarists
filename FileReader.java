@@ -12,22 +12,22 @@ public class FileReader
     Scanner in = new Scanner(System.in);
     HashTable files;
     ArrayList<Integer> fileNums;
-    int n,t;
-    public ArrHash reader(int num, int tolerance, File d){
+    int n;
+    public ArrHash reader(int num, File d){
         String directory = d.getName();
         File dir = new File(directory);
         String[] temp = dir.list();
         files = new HashTable(4357);
         fileNums = new ArrayList<Integer>();
         n = num;
-        t = tolerance;
         for(int i = 0; i < temp.length; i++)
         {
             String tempy = "";
-            String prev = null;
+            String[] prev = null;
             if(temp[i].endsWith(".txt")){
                 File start = new File(dir + "\\" + temp[i]);
-                prev = file.read(start);
+                File startCopy = new File(temp[i]);
+                prev = file.read(start).split("\\s+");
                 tempy = temp[i];
 
                 for(int b = i +1; b < temp.length;b++){ 
@@ -36,7 +36,7 @@ public class FileReader
                         String s = file.read(curr);
                         int tempNum = compare(prev,s);
                         fileNums.add(tempNum);
-                        files.put(tempNum, start + "," + temp[b] + ": ");
+                        files.put(tempNum, "[" + startCopy + "]" + ", " + "[" + temp[b] + "]" + ": ");
                         /*
                         System.out.print("[" + tempy +"],[" + temp[b] +"]\t\t");
                         System.out.println("->\t" +compare(prev,s));
@@ -45,7 +45,7 @@ public class FileReader
                 }
             }
         }
-        Collections.sort(fileNums);
+        Collections.sort(fileNums, Collections.reverseOrder());
         return ( new ArrHash(fileNums,files));
     }
 
@@ -69,19 +69,19 @@ public class FileReader
         }
     }
 
-    public int compare(String s1, String s2){
+    public int compare(String[] s1, String s2){
         double x = 0;
         int total = 0;
-        String[] temp = s1.split("\\s+");
+        
         //for(int i = 0; i < temp.length; i++){
 
-        for(int i = 0; i < temp.length-1; i+= (n - (n-1))){
+        for(int i = 0; i < s1.length-1; i+= (n - (n-1))){
             String sub1 = "";
-            for(int count = i; count < (n + i)  && count < temp.length; count++){
+            for(int count = i; count < (n + i)  && count < s1.length; count++){
                 if(count != 1)
-                    sub1 += temp[count] + " ";
+                    sub1 += s1[count] + " ";
                 else
-                    sub1+= temp[count];
+                    sub1+= s1[count];
             }
             if(s2.indexOf(sub1) != -1)
                 total++;
