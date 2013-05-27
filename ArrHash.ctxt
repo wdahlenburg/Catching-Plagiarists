@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=arr\ h
-comment0.target=ArrHash(java.util.ArrayList,\ HashTable)
-comment1.params=
-comment1.target=java.util.ArrayList\ getArrayList()
-comment2.params=
-comment2.target=HashTable\ getHashTable()
-numComments=3

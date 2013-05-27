@@ -5,7 +5,7 @@
  * @version 
  */
 public class HashTable<K,V>{
-    private int size;
+    public int size;
     private int capacity;
     private KeyedLinkedList<K,V> [] table;
 
