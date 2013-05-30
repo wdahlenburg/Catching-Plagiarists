@@ -3,8 +3,8 @@
  * This KeyedLinkedList object represents a Keyed List ADT implemented as
  * a LinkedList.
  * 
- * @author 
- * @version 
+ * @Wyatt Dahlenburg 
+ * @5/29/13
  */
 public class KeyedLinkedList<K,V> {
     private KeyNode first;
@@ -35,7 +35,7 @@ public class KeyedLinkedList<K,V> {
     // returns the logical size of this list
     public int size()
     {
-        return size;   // complete this method
+        return size;
     }
 
     // if key found, update value and return false (nothing added), 
@@ -91,6 +91,6 @@ public class KeyedLinkedList<K,V> {
             }
             p = p.next;
         }
-        return false;   // complete this method
+        return false; 
     }
 }

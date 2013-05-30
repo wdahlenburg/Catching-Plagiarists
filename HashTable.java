@@ -1,8 +1,8 @@
 /**
  * This HashTable object represents a hash table ADT implemented as an array of doubly linked lists
  * 
- * @author  
- * @version 
+ * @Wyatt Dahlenburg 
+ * @5/29/13
  */
 public class HashTable<K,V>{
     public int size;
@@ -23,7 +23,7 @@ public class HashTable<K,V>{
     // returns the number of keys in this hashtable
     public int size()
     {
-        return size;  // complete this method
+        return size;  
     }
 
     // clears this hashtable so that it contains no keys
@@ -35,8 +35,6 @@ public class HashTable<K,V>{
         for(int i = 0; i < table.length; i++)
             table[i] = new KeyedLinkedList<K,V>();
         this.capacity = capacity;
-        // complete this method
-        // it is essentially identical to the constructor
     }
 
     // returns the hashtable index for a given key
@@ -53,14 +51,12 @@ public class HashTable<K,V>{
         KeyedLinkedList<K,V> list = table[hashIndex(key)];
         for(int i = 0; i < table.length; i++){
             if(table[i].equals(list)){
-                //int a = hashIndex(key);
                 table[i].put(key,value);
                 size++;
                 return false;
             }
         }
         table[hashIndex(key)].put(key,value);
-        //capacity++;
         return true;
     }
 
@@ -73,7 +69,7 @@ public class HashTable<K,V>{
                 return (V) table[i].get(key);
             }
         }
-        return null;    // complete this method
+        return null;
     }
 
     // removes the element at the specified key location in this table
@@ -90,6 +86,6 @@ public class HashTable<K,V>{
                     return false;
             }
         }
-        return false;   // complete this method
+        return false; 
     }
 }
